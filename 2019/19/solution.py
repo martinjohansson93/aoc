@@ -3,7 +3,7 @@ def parseInput():
         return input_file.readlines()
 
 def algorithm():
-    pas
+    pass
 
 def one():
     input_list = parseInput()
@@ -12,7 +12,7 @@ def one():
         algorithm()
     print(1, result)
 
-def two()
+def two():
     input_list = parseInput()
     result = 0
     for i in input_list:
