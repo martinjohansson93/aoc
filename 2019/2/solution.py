@@ -1,18 +1,33 @@
+import copy
+
 def parseInput():
     with open("input", 'r') as input_file:
-        return input_file.readlines()
+        my_list = input_file.readlines()[0].split(',')
+        return my_list
 
 def algorithm():
-    pas
+    pass
 
 def one():
-    input_list = parseInput()
-    result = 0
-    for i in input_list:
-        algorithm()
-    print(1, result)
+    original_data = parseInput()
+    original_data = list(map(int, original_data))
 
-def two()
+    for a in range(0, 100):
+        for b in range(0, 100):
+            input_list = copy.deepcopy(original_data)
+            input_list[1] = a
+            input_list[2] = b
+            for i in range(0, len(input_list), 4):
+                if input_list[i] == 1:
+                    input_list[input_list[i+3]] = input_list[input_list[i+1]] + input_list[input_list[i+2]]
+                elif input_list[i] == 2:
+                    input_list[input_list[i+3]] = input_list[input_list[i+1]] * input_list[input_list[i+2]]
+                else:
+                    if input_list[0] == 19690720:
+                        print(2, a, b)
+                    break
+
+def two():
     input_list = parseInput()
     result = 0
     for i in input_list:
