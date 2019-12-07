@@ -5,35 +5,42 @@ def parseInput():
         my_list = input_file.readlines()[0].split(',')
         return my_list
 
-def algorithm():
-    pass
+def solution1():
+    data = parseInput()
+    for i in range(0, len(data), 4):
+        if data[i] == 1:
+            data[data[i+3]] = data[data[i+1]] + data[data[i+2]]
+        elif data[i] == 2:
+            data[data[i+3]] = data[data[i+1]] * data[data[i+2]]
+        else:
+            break
+    print(1, data[0])
 
-def one():
+
+def solution():
     original_data = parseInput()
     original_data = list(map(int, original_data))
-
     for a in range(0, 100):
         for b in range(0, 100):
-            input_list = copy.deepcopy(original_data)
-            input_list[1] = a
-            input_list[2] = b
-            for i in range(0, len(input_list), 4):
-                if input_list[i] == 1:
-                    input_list[input_list[i+3]] = input_list[input_list[i+1]] + input_list[input_list[i+2]]
-                elif input_list[i] == 2:
-                    input_list[input_list[i+3]] = input_list[input_list[i+1]] * input_list[input_list[i+2]]
+            data = copy.deepcopy(original_data)
+            data[1] = a
+            data[2] = b
+            sol1 = False 
+            if a == 12 and b == 2:
+                sol1 = True
+            for i in range(0, len(data), 4):
+                if data[i] == 1:
+                    data[data[i+3]] = data[data[i+1]] + data[data[i+2]]
+                elif data[i] == 2:
+                    data[data[i+3]] = data[data[i+1]] * data[data[i+2]]
                 else:
-                    if input_list[0] == 19690720:
+                    if sol1:
+                        print(1, data[0])
+                        break
+                    elif data[0] == 19690720:
                         print(2, a, b)
-                    break
+                        break
+    
 
-def two():
-    input_list = parseInput()
-    result = 0
-    for i in input_list:
-        algorithm()
-
-    print(2, result)
 if __name__ == "__main__":
-    one()
-    two()
+    solution()
