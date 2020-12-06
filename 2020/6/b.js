@@ -10,14 +10,13 @@ const readInput = () =>
 const input = readInput();
 
 let answeredQuestions = 0;
-input.forEach((answers) => {
-  const answer = answers.split(/\n/g);
-  let array = answer.pop().split("");
-
-  answer.forEach((ans) => {
-    array = array.filter((x) => ans.split("").includes(x));
+input.forEach((answersGroup) => {
+  const answersInGroup = answersGroup.split(/\n/g);
+  let answerAsArray = answersInGroup.pop().split("");
+  answersInGroup.forEach((ans) => {
+    answerAsArray = answerAsArray.filter((x) => ans.split("").includes(x));
   });
-  answeredQuestions += array.length;
+  answeredQuestions += answerAsArray.length;
 });
 
 console.log(`🚀 Answered questions: ${answeredQuestions}`);
