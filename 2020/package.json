@@ -1,0 +1,10 @@
+{
+  "name": "2020",
+  "version": "1.0.0",
+  "description": "2020 aoc",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "ramda": "^0.27.1"
+  }
+}
